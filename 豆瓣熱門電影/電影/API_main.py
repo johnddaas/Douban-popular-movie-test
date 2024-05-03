@@ -7,7 +7,7 @@ from sqlalchemy import and_, or_, func
 app = Flask(__name__)  # 創建 Flask 應用
 app.config["DEBUG"] = True  # 啟用偵錯模式
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://indubao:123456@35.201.154.5/test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:passwd@ip/test'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
