@@ -1,0 +1,6 @@
+BeautifulSoup4
+selenium
+webdriver_manager
+pymysql
+flask
+flask_sqlalchemy

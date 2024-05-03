@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <!-- 設置文件的基本元信息 -->
+    <meta charset="UTF-8"> <!-- 設置文件的字符編碼為 UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 設置頁面寬度為設備寬度，初始縮放比例為 1.0 -->
+    <title>使用者資訊</title> <!-- 設置頁面標題 -->
+    
+    <!-- 引入 CSS 樣式 -->
+    <style>
+        /* 表格區域樣式 */
+        .scrollable-table {
+            overflow-y: scroll; /* 設置表格區域內容過多時出現垂直滾動條 */
+            height: 425px; /* 設置表格區域高度 */
+        }
+        /* 表格表頭樣式 */
+        .scrollable-table table thead {
+            position: sticky; /* 將表格表頭固定在視窗頂部 */
+            top: 0;
+            background-color: #fff; /* 設置表頭背景顏色 */
+            z-index: 1; /* 設置表頭 z-index，使其顯示在其他內容之上 */
+        }
+        /* 表單元素樣式 */
+        .form-group {
+            display: flex; /* 使用彈性盒子模型 */
+            align-items: center; /* 垂直居中對齊 */
+            margin-bottom: 15px; /* 設置底部間距 */
+        }
+        .form-group label {
+            font-weight: bold; /* 設置標籤文本加粗 */
+        }
+        .form-group select,
+        .form-group input[type="text"] {
+            margin-right: 20px; /* 設置右側間距 */
+            width: 200px; /* 設置寬度 */
+            padding: 5px; /* 設置內邊距 */
+        }
+        .form-group button {
+            padding: 10px 20px; /* 設置內邊距 */
+            background-color: #007bff; /* 設置背景顏色 */
+            color: #fff; /* 設置文本顏色 */
+            border: none; /* 移除邊框 */
+            cursor: pointer; /* 設置滑鼠應答為手型 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 頁面標題 -->
+    <h1>使用者資訊</h1>
+    <!-- 搜尋表單 -->
+    <form action="/" method="GET"> <!-- 設置表單提交方法和目標 URL -->
+       
+        </div>
+    </form>
+    <!-- 表格區域 -->
+    <div class="scrollable-table"> <!-- 表格區域容器 -->
+        <table border="1"> <!-- 表格 -->
+            <!-- 表頭 -->
+            <thead>
+                <tr>
+                    <th>電影名</th> <!-- 表頭單元格 -->
+                    <th>海報</th>
+                    <th>類型</th>
+                    <th>片長</th>
+                    <th>制片國家</th>
+                    <th>語言</th>
+                    <th>上映日期</th>
+                    <th>別名</th>
+                    <th>IMDb編號</th>
+                    <th>鏈接</th>
+                </tr>
+            </thead>
+            <!-- 資料行 -->
+            <tbody>
+                {% for row in data %} <!-- 遍歷資料列表 -->
+                <tr> <!-- 行 -->
+                    <td>{{ row.電影名 }}</td> <!-- 單元格 -->
+                    <td><img src="data:image/jpeg;base64,{{ row.海報 }}" alt="{{ row.電影名 }}" style="width: 100px;"></td> <!-- 图像单元格 -->
+                    <td>{{ row.類型 }}</td>
+                    <td>{{ row.片長 }}</a></td>
+                    <td>{{ row.制片國家 }}</td>
+                    <td>{{ row.語言 }}</td>
+                    <td>{{ row.上映日期 }}</td>
+                    <td>{{ row.別名 }}</td>
+                    <td>{{ row.IMDb編號 }}</td>
+                    <td><button onclick="window.open('{{ row.鏈接 }}', '_blank')">影片鏈接</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
